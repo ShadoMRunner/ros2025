@@ -1,0 +1,3 @@
+<launch>
+    <node name="param_study" pkg="super_ivan_study_pkg" type="param_study_node.py" output="screen"/>
+</launch>

@@ -1,0 +1,7 @@
+<launch>
+    <!-- Polynominal node - обрабатывает запросы -->
+    <node name="polynomial" pkg="super_ivan_study_pkg" type="polynomial_node.py" output="screen"/>
+    
+    <!-- Summing node - суммирует результаты -->
+    <node name="summing" pkg="super_ivan_study_pkg" type="summing_node.py" output="screen"/>
+</launch>
