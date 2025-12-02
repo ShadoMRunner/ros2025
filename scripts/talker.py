@@ -5,7 +5,7 @@ from std_msgs.msg import String
 def talker():
     rospy.init_node('talker')
     pub = rospy.Publisher('chat_topic', String, queue_size=10)
-    rate = rospy.Rate(10)  # 10 Hz - исправлено!
+    rate = rospy.Rate(10)  
     count = 0
     
     while not rospy.is_shutdown():
