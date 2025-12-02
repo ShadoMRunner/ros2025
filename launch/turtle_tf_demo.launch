@@ -1,0 +1,22 @@
+<launch>
+    <!-- Запуск симулятора черепашек -->
+    <node pkg="turtlesim" type="turtlesim_node" name="simulator"/>
+    
+    <!-- Запуск управления с клавиатуры -->
+    <node pkg="turtlesim" type="turtle_teleop_key" name="keyboard" output="screen"/>
+    
+    <!-- Запуск нашего TF Broadcaster для первой черепашки -->
+    <node pkg="super_ivan_study_pkg" type="turtle_tf_broadcaster.py" name="turtle1_tf_broadcaster" output="screen">
+        <!-- Переназначаем топик -->
+        <remap from="input_pose" to="turtle1/pose"/>
+        <!-- Устанавливаем параметр с именем черепашки -->
+        <param name="turtle_tf_name" type="string" value="turtle1"/>
+    </node>
+    
+    <!-- Запуск статического TF преобразования (морковка перед черепашкой) -->
+    <node pkg="tf" type="static_transform_publisher" name="static_carrot_tf" 
+          args="0.3 0 0 0 0 0 turtle1 carrot_static 100"/>
+    
+    <!-- Запуск Rviz для визуализации -->
+    <node pkg="rviz" type="rviz" name="rviz"/>
+</launch>

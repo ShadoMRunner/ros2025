@@ -8,7 +8,11 @@ project(super_ivan_study_pkg)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  roscpp
   rospy
+  tf
+  turtlesim
+  geometry_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -105,6 +109,10 @@ catkin_package(
 #  LIBRARIES super_ivan_study_pkg
 #  CATKIN_DEPENDS rospy
 #  DEPENDS system_lib
+)
+
+catkin_install_python(PROGRAMS scripts/turtle_tf_broadcaster.py
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ###########
