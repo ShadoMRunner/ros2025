@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Запуск симуляции с картографированием -->
+    <include file="$(find super_ivan_study_pkg)/launch/turtlebot3_sim_mapping.launch">
+        <arg name="rviz" value="false"/>
+    </include>
+    
+    <!-- Запуск навигации -->
+    <include file="$(find super_ivan_study_pkg)/launch/turtlebot3_move_base.launch"/>
+    
+    <!-- Запуск Rviz для навигации -->
+    <node pkg="rviz" type="rviz" name="rviz" 
+          args="-d $(find super_ivan_study_pkg)/rviz/sim_mapping.rviz"/>
+</launch>

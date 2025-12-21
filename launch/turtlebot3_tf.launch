@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Статический TF от base_footprint к base_scan -->
+    <node pkg="tf" type="static_transform_publisher" name="base_footprint_to_base_scan" 
+          args="0 0 0.3 0 0 0 base_footprint base_scan 100"/>
+</launch>

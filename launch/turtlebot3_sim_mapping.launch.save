@@ -1,0 +1,17 @@
+ch>
+    <arg name="rviz" default="false"/>
+    <arg name="gazebo_gui" default="true"/>
+    
+    <!-- Запуск симуляции -->
+    <include file="$(find super_ivan_study_pkg)/launch/turtlebot3_sim_start.launch">
+        <arg name="rviz" value="false"/>
+        <arg name="gazebo_gui" value="$(arg gazebo_gui)"/>
+    </include>
+    
+    <!-- Запуск gmapping -->
+    <include file="$(find super_ivan_study_pkg)/launch/turtlebot3_my_gmapping.launch"/>
+    
+    <!-- Запуск Rviz для картографирования -->
+    <node if="$(arg rviz)" pkg="rviz" type="rviz" name="rviz" 
+          args="-d $(find super_ivan_study_pkg)/rviz/sim_mapping.rviz"/>
+</launch>
